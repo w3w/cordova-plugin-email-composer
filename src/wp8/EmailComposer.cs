@@ -15,8 +15,14 @@ namespace Cordova.Extension.Commands
         public void open(string options)
         {
             string[] jsOptions = JsonHelper.Deserialize<string[]>(options);
-            string subject = jsOptions[0];
-            string text = jsOptions[1];
+
+            //epic hack to convert JS object to array which can be deserialized
+            char[] charsToTrim = { '}' };
+            string arrayString = jsOptions[0].Replace("{\"subject\":", "[").Replace("\"body\":", "").TrimEnd(charsToTrim) + "]";
+
+            string[] data = JsonHelper.Deserialize<string[]>(arrayString);
+            string subject = data[0];
+            string text = data[1];
 
             EmailComposeTask emailComposeTask = new EmailComposeTask();
 
