@@ -47,4 +47,14 @@
         <source-file src="src/android/EmailComposer.java" target-dir="src/de/appplant/cordova/plugin/emailcomposer" />
     </platform>
 
+	<!-- WP8 -->
+	<platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="EmailComposer">
+                <param name="wp-package" value="EmailComposer" />
+            </feature>
+        </config-file>
+        <source-file src="src/wp8/EmailComposer.cs" />
+    </platform>
+
 </plugin>

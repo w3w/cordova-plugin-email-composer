@@ -17,6 +17,11 @@ Through the [Command-line Interface](http://cordova.apache.org/docs/en/3.0.0/gui
 cordova plugin add https://github.com/katzer/cordova-plugin-email-composer.git
 ```
 
+- **WP8**
+```
+cordova plugin add  https://github.com/w3w/cordova-plugin-email-composer.git
+```
+
 ## Removing the Plugin from your project
 Through the [Command-line Interface](http://cordova.apache.org/docs/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface):
 ```
