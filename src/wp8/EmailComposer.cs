@@ -31,5 +31,12 @@ namespace Cordova.Extension.Commands
 
             emailComposeTask.Show();
         }
+
+        public void isServiceAvailable(string options)
+        {
+            PluginResult result = new PluginResult(PluginResult.Status.OK, "{\"message\":\"ok\"}");
+            result.KeepCallback = false;
+            this.DispatchCommandResult(result);
+        }
     }
 }
