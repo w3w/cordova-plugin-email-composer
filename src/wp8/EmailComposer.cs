@@ -18,14 +18,16 @@ namespace Cordova.Extension.Commands
 
             //epic hack to convert JS object to array which can be deserialized
             char[] charsToTrim = { '}' };
-            string arrayString = jsOptions[0].Replace("{\"subject\":", "[").Replace("\"body\":", "").TrimEnd(charsToTrim) + "]";
+            string arrayString = jsOptions[0].Replace("{\"recipients\":[", "[").Replace("],\"subject\":", ",").Replace("\"body\":", "").TrimEnd(charsToTrim) + "]";
 
             string[] data = JsonHelper.Deserialize<string[]>(arrayString);
-            string subject = data[0];
-            string text = data[1];
+            string recipient = data[0];
+            string subject = data[1];
+            string text = data[2];
 
             EmailComposeTask emailComposeTask = new EmailComposeTask();
 
+            emailComposeTask.To = recipient;
             emailComposeTask.Subject = subject;
             emailComposeTask.Body = text;
 
